@@ -34,6 +34,10 @@
       "type": "decimal"
     },
 
+    "offerPrice": {
+      "type": "decimal"
+    },
+
     "purchaseOrderNumber": {
       "type": "string"
     },
@@ -50,6 +54,10 @@
       "type": "string"
     },
 
+    "auto": {
+      "type": "json",
+      "default": {}
+    },
     "keywords": {
       "type": "json",
       "default": []
@@ -72,7 +80,14 @@
       "relation": "manyToOne",
       "target": "api::supplier.supplier"
     },
-
+    "purchase": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchase.purchase"
+    },
+    "supplierCode": {
+      "type": "string"
+    },
     "brand": {
       "type": "relation",
       "relation": "manyToOne",
@@ -91,12 +106,26 @@
       "target": "api::term.term"
     },
 
-    "processe": {
+    "purchaseItem": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchase-item.purchase-item"
+    },
+    "stockItems": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::stock-item.stock-item"
+    },
+
+    "process": {
       "type": "boolean",
       "default": false
     },
-
     "processed": {
+      "type": "boolean",
+      "default": false
+    },
+    "processedOk": {
       "type": "boolean",
       "default": false
     },
@@ -105,8 +134,10 @@
       "type": "datetime"
     },
     "importName": {
-      "type": "string",
-      "unique": true
+      "type": "string"
+    },
+    "lastError": {
+      "type": "string"
     }
   }
 }

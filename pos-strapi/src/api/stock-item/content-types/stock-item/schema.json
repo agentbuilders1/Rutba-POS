@@ -11,6 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
     "sku": {
       "type": "string"
     },
@@ -39,6 +43,9 @@
       "type": "decimal"
     },
     "selling_price": {
+      "type": "decimal"
+    },
+    "offer_price": {
       "type": "decimal"
     },
     "discount": {
